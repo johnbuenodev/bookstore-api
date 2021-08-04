@@ -1,5 +1,6 @@
 package com.example.demo.categoria.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,12 @@ public class CategoriaService {
 		Optional<Categoria> obj = CatRepository.findById(id);
 		//return obj.orElse(null);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto com id " + id + " não encontrado! " + " Tipo: " + Categoria.class.getName()));
+		
+	}
+	
+	public List<Categoria> findAllCategoria(){
+		
+		return CatRepository.findAll();
 		
 	}
 
