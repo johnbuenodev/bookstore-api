@@ -31,4 +31,13 @@ public class CategoriaService {
 		
 	}
 
+	
+	public Categoria createCategoria(Categoria obj) {
+		
+		obj.setId(null);
+
+		return CatRepository.save(obj);
+		
+	}
+	
 }
