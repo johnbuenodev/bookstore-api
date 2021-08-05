@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.categoria.domain.Categoria;
 import com.example.demo.categoria.repository.CategoriaRepository;
+import com.example.demo.dtos.CategoriaDTO;
 import com.example.demo.service.exceptions.ObjectNotFoundException;
 
 @Service
@@ -37,6 +38,15 @@ public class CategoriaService {
 		obj.setId(null);
 
 		return CatRepository.save(obj);
+		
+	}
+
+	public Categoria update(Long id, CategoriaDTO objDTO) {
+		
+		Categoria obj = this.findById(id);
+		obj.setNome(objDTO.getNome());
+		obj.setDescricao(objDTO.getDescricao());
+		return CatRepository.save(obj); 
 		
 	}
 	
